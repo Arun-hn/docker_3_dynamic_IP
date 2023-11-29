@@ -3,6 +3,7 @@ in the docker 2 project we need to change each time hostname ie. public IP of ec
 
 It is not usefull for automation using docker compose 
 so to overcome this we use dynamic IP 
+
 so in index.html I used 
  (async function init() {
         const baseUrl = window.location.origin; // Get the base URL dynamically
