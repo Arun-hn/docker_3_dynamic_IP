@@ -1,14 +1,20 @@
-It is the continuation of Docker_1 project.
-Here we use Docker-compose.yml file to run containers.
+It is the continuation of Docker_2 project.
+in the docker 2 project we need to change each time hostname ie. public IP of ec2
 
-Before running docker-compose.yaml
-first run 
-change host to ec2-public-ip in index.html and 
+It is not usefull for automation using docker compose 
+so to overcome this we use dynamic IP 
+so in index.html I used 
+ (async function init() {
+        const baseUrl = window.location.origin; // Get the base URL dynamically
+        const response = await fetch(`${baseUrl}/get-profile`);
+        console.log("response", response);
+        const user = await response.json();
+        console.log(JSON.stringify(user));
 
+So it can automatically fetch the Public IP 
+
+So build the my app frontend image
 docker build -t my-app .
-
-then my-app image built,
-
 
 Now run 
 docker-compose up
